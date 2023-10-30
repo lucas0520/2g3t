@@ -7,6 +7,13 @@ body{
     width: 200px;
     border-radius: 5px;
 }
+.entrada{
+    width: 48px;
+    background-color: darkkhaki;
+    border: none;
+    border-bottom: 2px solid #000;
+    text-align: right;
+}
 .display_simples{
     width: 100%;
     text-align: center;
