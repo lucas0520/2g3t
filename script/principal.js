@@ -5,10 +5,11 @@ div = (a,b) => a / b;
 mult = (a,b) => a * b;
 raiz = a => Math.sqrt(a);
 eq2grau = (a,b,c) => {
-    
     if(a == 0) return "Não é uma equação do Segundo Grau.";
     let delta = sub(mult(b,b),mult(4,mult(a,c)));
-    document.getElementById('delta').innerHTML = delta;
+
+    document.getElementById("delta").innerHTML = delta;
+
     if(delta < 0) return "Não Possui raiz real.";
     if(delta == 0) return "x1 = x2 = " + div(-b,mult(2,a));
     return "x1 " + div(soma(-b,raiz(delta)),mult(2,a)) + 
@@ -20,12 +21,14 @@ let c = "0";
 let sa = "+";
 let sb = "+";
 let sc = "+";
+
 let op = "";
 let valor = "";
 let tem_ponto = false;
 let desligada = false;
 
 function raiz_quadrada(){
+    console.log(valor);
     mostra_resultado(raiz(valor));
     valor = "";
 }
@@ -99,34 +102,40 @@ function digitando(tecla){
 }
 const set_sinal_a = () =>{
     sa = document.getElementById("sinal_a").value;
+    a = Number(a);
+    a = -a;
     calcular2g();
 }
 const set_sinal_b = () =>{
     sb = document.getElementById("sinal_b").value;
-    alcular2g();
+    b = Number(b);
+    b = -b;
+    calcular2g();
 }
 const set_sinal_c = () =>{
     sc = document.getElementById("sinal_c").value;
-    alcular2g();
+    c = Number(c);
+    c = -c;
+    calcular2g();
 }
 const set_valor_a = () =>{
-    a = document.getElementById("sinal_a").value;
-    a = Number (a);
-    if (sa == "-") a = -a;
+    a = document.getElementById("valor_a").value;
+    a = Number(a);
+    if(sa == "-") a = -a;
     calcular2g();
 }
 const set_valor_b = () =>{
-    b = document.getElementById("sinal_b").value;
-    a = Number (b);
-    if (sa == "-") b = -b;
-    alcular2g();
+    b = document.getElementById("valor_b").value;
+    b = Number(b);
+    if(sb == "-") b = -b;
+    calcular2g();
 }
 const set_valor_c = () =>{
-    c = document.getElementById("sinal_c").value;
-    a = Number (c);
-    if (sa == "-") c = -c;
-    alcular2g();
+    c = document.getElementById("valor_c").value;
+    c = Number(c);
+    if(sc == "-") c = -c;
+    calcular2g();
 }
-const calcular2g = () =>{
-    document.getElementById("raiz").innerHTML = eq2grau(a,c,b);
+const calcular2g = ()=>{
+    document.getElementById("raiz").innerHTML = eq2grau(a,b,c);
 }
